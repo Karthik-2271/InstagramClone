@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ParseQuery<ParseObject> allQueries=ParseQuery.getQuery("KickBoxer");
                 allQueries.whereGreaterThanOrEqualTo("kick_power",1000);
+                allQueries.setLimit(1);
                 allQueries.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
